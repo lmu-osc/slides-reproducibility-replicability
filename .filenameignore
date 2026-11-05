@@ -4,6 +4,7 @@
 _site/**
 .quarto/**
 .github/**
+images/**
 
 
 # Common documentation files to ignore
