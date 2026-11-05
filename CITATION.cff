@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you refer to these slides, please cite them as below."
+authors:
+- family-names: "von Grebmer zu Wolfsthurn"
+  given-names: "Sarah"
+  affiliation:
+    - name: "LMU Open Science Center"
+      ror: "https://ror.org/029e6qe04"
+- family-names: "Ihle"
+  given-names: "Malika"
+  affiliation:
+    - name: "LMU Open Science Center"
+      ror: "https://ror.org/029e6qe04"
+- family-names: "Schönbrodt"
+  given-names: "Felix"
+  affiliation:
+    - name: "LMU Open Science Center"
+      ror: "https://ror.org/029e6qe04"
+title: "Threats to credible research: Where are we at?"
+version: 0.0.1
+repository-code: "https://github.com/lmu-osc/slides-reproducibility-replicability"
+url: "https://lmu-osc.github.io/slides-reproducibility-replicability/"
+publisher:
+  name: "LMU Open Science Center"
+  ror: "https://ror.org/029e6qe04"

@@ -4,30 +4,34 @@ author: "Sarah von Grebmer zu Wolfsthurn"
 date: "today"
 date-format: "DD/MM/YYYY"
 format: 
+  osc-brand-html:
+    toc: true
   revealjs:
-    css: ../../assets/slides-custom.css # looks for css file in root
+    css: assets/slides-custom.css
     footer: LMU Open Science Center
     slide-number: true
-    logo: ../../assets/logos/OSC_Logo.jpg  # Inserts logo in the bottom right corner (default)
+    logo: assets/logos/OSC_Logo.jpg  # Inserts logo in the bottom right corner (default)
+    output-file: slides-reproducibility-replicability-revealjs.html
+    filters:
+      - timer  # RevealJS only; the PPTX render errors on this filter
   pdf:
     geometry: 
       - top=30mm
       - left=30mm
-  pptx: default
+    output-file: slides-reproducibility-replicability.pdf
+  osc-brand-pptx:
+    output-file: slides-reproducibility-replicability.pptx
 
 revealjs-plugins:
   - tabset
 
-bibliography: ../../assets/references.bib
-csl: ../../assets/apa.csl
+bibliography: assets/references.bib
+csl: assets/apa.csl
 
 execute:
   echo: true
   eval: true
   engine: knitr
-
-filters: 
-  - timer
 ---
 
 <!-- Timings:
@@ -812,55 +816,70 @@ library(tidyverse)
 # Added "Social Sciences"
 
 # Sample data
-df <- data.frame(Category = rep(c("Psychology (n = 97)", 
-                                  "Social Sciences (n = 139)",
-                                  "Cancer Research (n = 53)", 
-                                  "Pharmaceutical Research (n = 67)",
-                                  "Experimental Economics (n = 16)",
-                                  "Experimental Philosophy (n = 40)"), 
-                                each = 2),
-                 Result = rep(c("successfully replicated",
-                                "unsuccessfully replicated"), 
-                              times = 6),
+df <- data.frame(
+  Category = rep(
+    c(
+      "Psychology (n = 97)",
+      "Social Sciences (n = 139)",
+      "Cancer Research (n = 53)",
+      "Pharmaceutical Research (n = 67)",
+      "Experimental Economics (n = 16)",
+      "Experimental Philosophy (n = 40)"
+    ),
+    each = 2
+  ),
+  Result = rep(
+    c("successfully replicated", "unsuccessfully replicated"),
+    times = 6
+  ),
   Value = c(36, 64, 42, 58, 11, 89, 34, 66, 61, 39, 78, 22)
 )
 
 # Preserve order of bars on x-axis
 df$Category <- factor(
   df$Category,
-  levels = c("Psychology (n = 97)", 
-             "Social Sciences (n = 139)",
-             "Cancer Research (n = 53)", 
-             "Pharmaceutical Research (n = 67)",
-             "Experimental Economics (n = 16)",
-             "Experimental Philosophy (n = 40)")
+  levels = c(
+    "Psychology (n = 97)",
+    "Social Sciences (n = 139)",
+    "Cancer Research (n = 53)",
+    "Pharmaceutical Research (n = 67)",
+    "Experimental Economics (n = 16)",
+    "Experimental Philosophy (n = 40)"
+  )
 )
 
 # Make stacking order explicit: unsuccessfully replicated on top, successfully on bottom.
-df$Result <- factor(df$Result, 
-                    levels = c("unsuccessfully replicated",
-                               "successfully replicated"))
+df$Result <- factor(
+  df$Result,
+  levels = c("unsuccessfully replicated", "successfully replicated")
+)
 
 # Plot
 ggplot(df, aes(x = Category, y = Value, fill = Result)) +
   geom_bar(stat = "identity") +
-  geom_text(aes(label = paste0(Value, "%")), # use position_stack(vjust = 0.5) to center a label inside each segment
-            position = position_stack(vjust = 0.5),
-            color = "white",
-            size = 5) +
-  labs(title = "",
-       x = "",
-       y = "Percentage (%)") +
-  scale_fill_manual(values = c("successfully replicated" = "darkgreen",
-                               "unsuccessfully replicated" = "darkred"),
-                    labels = function(x) str_wrap(x, width = 12)) + # wrap legend names
+  geom_text(
+    aes(label = paste0(Value, "%")), # use position_stack(vjust = 0.5) to center a label inside each segment
+    position = position_stack(vjust = 0.5),
+    color = "white",
+    size = 5
+  ) +
+  labs(title = "", x = "", y = "Percentage (%)") +
+  scale_fill_manual(
+    values = c(
+      "successfully replicated" = "darkgreen",
+      "unsuccessfully replicated" = "darkred"
+    ),
+    labels = function(x) str_wrap(x, width = 12)
+  ) + # wrap legend names
   theme_minimal() +
   scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) + # to wrap text
-  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 14),
-        axis.text.y = element_text(size = 14),
-        axis.title.x = element_text(size = 14),
-        axis.title.y = element_text(size = 14),
-        legend.text = element_text(size = 14))
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 14),
+    axis.text.y = element_text(size = 14),
+    axis.title.x = element_text(size = 14),
+    axis.title.y = element_text(size = 14),
+    legend.text = element_text(size = 14)
+  )
 ```
 
 
