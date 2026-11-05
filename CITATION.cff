@@ -11,6 +11,9 @@ authors:
     given-names: "Felix"
     affiliation: "LMU Open Science Center"
 title: "Threats to credible research: Where are we at?"
-version: v1.0.0
+version: v1.0.1
+doi: "10.5281/zenodo.23983537"
+date-released: 2026-11-05
+license: CC-BY-SA-4.0
 repository-code: "https://github.com/lmu-osc/slides-reproducibility-replicability"
 url: "https://lmu-osc.github.io/slides-reproducibility-replicability/"
