@@ -4,6 +4,7 @@
 _site/**
 .quarto/**
 .github/**
+_extensions/
 images/**
 
 
