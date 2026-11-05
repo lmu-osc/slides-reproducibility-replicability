@@ -27,11 +27,6 @@ revealjs-plugins:
 
 bibliography: assets/references.bib
 csl: assets/apa.csl
-
-execute:
-  echo: true
-  eval: true
-  engine: knitr
 ---
 
 <!-- Timings:
@@ -572,7 +567,7 @@ For many people outside of science, it may be surprising that transparency is no
 ::::
 
 ::: footer
-Royal Society logo by <a href="//commons.wikimedia.org/wiki/User:MostEpic" title="User:MostEpic">MostEpic</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=116754312">Link</a>; Car dealer by ChatGPT.
+Royal Society logo by <a href="//commons.wikimedia.org/wiki/User:MostEpic" title="User:MostEpic">MostEpic</a> - <span class="int-own-work">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=116754312">Link</a>; Car dealer by ChatGPT.
 :::
 
 ---
